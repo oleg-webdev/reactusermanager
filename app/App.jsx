@@ -18,10 +18,8 @@ class App extends Component {
 	render() {
 		return (
 			<div className="container">
-
 				<Main changeUsername={this.changeUsername}/>
 				<User username={this.state.username}/>
-
 			</div>
 		)
 	}
