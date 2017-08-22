@@ -1,35 +1,9 @@
-// import React, {Component} from 'react';
-// import { render } from 'react-dom';
-// import Main from './components/Main'
-// import User from './components/User'
-//
-// class App extends Component {
-//
-// 	state = {
-// 		username: "Oleg"
-// 	};
-//
-// 	changeUsername = (newName) => {
-// 		this.setState({
-// 			username: newName
-// 		});
-// 	}
-//
-// 	render() {
-// 		return (
-// 			<div className="container">
-// 				<Main changeUsername={this.changeUsername}/>
-// 				<User username={this.state.username}/>
-// 			</div>
-// 		)
-// 	}
-//
-// }
-//
-// render(<App/>, document.getElementById('app'));
-
+import React from 'react';
 import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { render } from 'react-dom';
+import { Provider } from 'react-redux'
 
+import App from './AppEntry'
 
 const mathReducer = (state = { result: 0, lastValues: [] }, action) => {
 
@@ -89,16 +63,8 @@ store.subscribe(() => {
 	console.log("Store updated!", store.getState());
 })
 
-store.dispatch({
-	type: "ADD",
-	payload: 150
-})
-store.dispatch({
-	type: "SUBTRACT",
-	payload: 20
-})
 
-store.dispatch({
-	type: "SET_AGE",
-	payload: 20
-})
+render(
+	<Provider store={store}>
+		<App/>
+	</Provider>, document.getElementById('app'));

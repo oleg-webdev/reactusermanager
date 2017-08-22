@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class Main extends Component {
+class Main extends Component {
 
 	render() {
 		return (
@@ -14,7 +15,7 @@ export default class Main extends Component {
 					<div className="col-xs-12">
 						<button
 							className="btn btn-primary"
-							onClick={() => this.props.changeUsername('Anastasia')}>Change the Username</button>
+							onClick={() => this.props.setName('Alicelf')}>Change the Username</button>
 					</div>
 				</div>
 			</div>
@@ -22,3 +23,22 @@ export default class Main extends Component {
 	}
 
 }
+
+const mapStateToProps = (state) => {
+	return {
+		user: state.userReducer,
+		math: state.mathReducer
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setName: (name) => {
+			dispatch({
+				type: "SET_NAME",
+				payload: name
+			})
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
