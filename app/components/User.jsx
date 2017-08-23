@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 class User extends Component {
 
-
-
 	render() {
 		return (
 			<div>

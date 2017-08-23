@@ -67,6 +67,6 @@
   "version": "0.0.1",
   "description": "React test starter",
   "main": "server.js",
-  "author": "",
+  "author": "Oleg Webartisan <cibulnicoleg@gmail.com>",
   "license": "MIT"
 }
