@@ -3,7 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { render } from 'react-dom';
 import { Provider } from 'react-redux'
 
-import App from './AppEntry'
+import App from './components/AppEntry'
 
 const mathReducer = (state = { result: 0, lastValues: [] }, action) => {
 
@@ -49,14 +49,16 @@ const userReducer = (state = { name: "Oleg", age: 34 }, action) => {
 
 }
 
-const myLogger = (store) => (next) => (action) => {
+const AppGuardian = (store) => (next) => (action) => {
+
 	console.log("Logged action", action);
+
 	next(action);
 }
 
 const store = createStore(
 	combineReducers({ mathReducer, userReducer }), {},
-	applyMiddleware(myLogger)
+	applyMiddleware(AppGuardian)
 )
 
 store.subscribe(() => {
@@ -67,4 +69,5 @@ store.subscribe(() => {
 render(
 	<Provider store={store}>
 		<App/>
-	</Provider>, document.getElementById('app'));
+	</Provider>,
+	document.getElementById('app'));

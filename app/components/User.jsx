@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class User extends Component {
+class User extends Component {
+
+
 
 	render() {
 		return (
@@ -12,7 +15,7 @@ export default class User extends Component {
 				</div>
 				<div className="row">
 					<div className="col-xs-12">
-						<p>User Name: {this.props.username}</p>
+						<p>User Name: {this.props.user.name}...</p>
 					</div>
 				</div>
 			</div>
@@ -21,3 +24,12 @@ export default class User extends Component {
 	}
 
 }
+
+const mapStateToProps = (state) => {
+	return {
+		user: state.userReducer,
+		math: state.mathReducer
+	}
+}
+
+export default connect(mapStateToProps)(User)

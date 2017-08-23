@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Main from './components/Main'
-import User from './components/User'
+import Main from './Main'
+import User from './User'
+import Search from '../routes/Search'
 
 class App extends Component {
 
@@ -10,7 +12,16 @@ class App extends Component {
 		return (
 			<div className="container">
 				<Main/>
-				<User username={this.props.user.name}/>
+				<User/>
+
+				<BrowserRouter>
+					<div className="app">
+						<Switch>
+							<Route path="/search" component={Search}/>
+						</Switch>
+					</div>
+				</BrowserRouter>
+
 			</div>
 		)
 	}
