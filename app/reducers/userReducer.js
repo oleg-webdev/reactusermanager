@@ -1,6 +1,7 @@
 export default (state = { name: "Oleg", age: 34 }, action) => {
 
 	switch (action.type) {
+		// SET_NAME_FULFILLED
 		case "SET_NAME" :
 			state = {
 				...state,
