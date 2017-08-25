@@ -2,26 +2,32 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Main from './Main'
-import User from './User'
+import Menu from '../components/header/Menu'
+import Home from '../routes/Home'
 import Search from '../routes/Search'
+import Users from '../routes/Users'
 
+// <Route exact path="/" render={props => <Home {...props}/>}/>
+// <Route path="/users" component={Users}/>
 class App extends Component {
 
 	render() {
 		return (
-			<div className="container">
-				<Main/>
-				<User/>
-
+			<div>
 				<BrowserRouter>
-					<div className="app">
-						<Switch>
-							<Route path="/search" component={Search}/>
-						</Switch>
+					<div>
+						<Menu/>
+						<div className="container-fluid">
+							<div className="app">
+								<Switch>
+									<Route exact path="/" component={Home}/>
+									<Route path="/users" component={Users}/>
+									<Route path="/search" component={Search}/>
+								</Switch>
+							</div>
+						</div>
 					</div>
 				</BrowserRouter>
-
 			</div>
 		)
 	}
@@ -30,8 +36,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		user: state.userReducer,
-		math: state.mathReducer
+		user: state.userReducer
 	}
 }
 

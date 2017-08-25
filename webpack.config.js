@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 module.exports = {
   context: __dirname,
   entry: './app/index.jsx',
@@ -31,6 +32,10 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader'
+      },
+      {
+	      loaders: [ 'style-loader', 'css-loader', 'sass-loader' ],
+	      test   : /\.scss$/,
       }
     ]
   }

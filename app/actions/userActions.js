@@ -18,7 +18,6 @@ export function setName(name) {
 	// 		}, 2000)
 	// 	})
 	// }
-
 	return {
 		type: "SET_NAME",
 		payload: name

@@ -2,7 +2,6 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 import promise from "redux-promise-middleware"
 
-import mathReducer from './reducers/mathReducer'
 import userReducer from './reducers/userReducer'
 
 // Middleware
@@ -15,6 +14,6 @@ const AppGuardian = (store) => (next) => (action) => {
 }
 
 export default createStore(
-	combineReducers({ mathReducer, userReducer }), {},
+	combineReducers({ userReducer }), {},
 	applyMiddleware(AppGuardian, thunk, promise())
 )
