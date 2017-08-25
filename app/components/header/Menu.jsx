@@ -36,12 +36,6 @@ class Menu extends Component {
 		return (
 			<header className="header-wrap">
 				<div>
-					<IconButton
-						label="Open Drawer"
-						onClick={this.handleToggle}>
-						<FontIcon className="material-icons">menu</FontIcon>
-					</IconButton>
-
 					<Drawer
 						docked={false}
 						width={250}
@@ -71,6 +65,17 @@ class Menu extends Component {
 							leftIcon={this.iconsSet.logout}>Logout</MenuItem>
 					</Drawer>
 				</div>
+
+				<nav className="navbar navbar-expand-md app-navbar">
+					<a className="navbar-brand" href="#">Navbar</a>
+					<IconButton
+						label="Open Drawer"
+						onClick={this.handleToggle}>
+						<FontIcon className="material-icons">menu</FontIcon>
+					</IconButton>
+				</nav>
+
+
 			</header>
 		)
 	}

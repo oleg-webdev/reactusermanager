@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import '../../public/styles/styles.scss'
-// npm install --save-dev css-loader sass-loader style-loader
+
 export default class Users extends Component {
 
 	render() {

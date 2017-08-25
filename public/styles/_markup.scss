@@ -1,0 +1,162 @@
+.am-wrap {
+  @include clearfix;
+  display      : block;
+  float        : none;
+  margin-left  : auto;
+  margin-right : auto;
+  clear        : both;
+}
+
+/**
+ * ==================== Flex Grid ======================
+ */
+.flex-container {
+  display   : -ms-flexbox;
+  display   : flex;
+  flex-flow : row wrap;
+}
+
+.flex-container-nowrap {
+  display   : -ms-flexbox;
+  display   : flex;
+  flex-flow : row nowrap;
+
+  /*Mobile*/
+  @media (max-width : 767px) {
+    flex-wrap : wrap;
+  }
+
+}
+
+// flex-col flex-col-desktop flex-col-tablet flex-col-phone
+@mixin flex-col {
+
+  .flex-col-33 {
+    flex-basis : 33.33333333%;
+    max-width  : 33.33333333%;
+  }
+
+  .flex-col-66 {
+    flex-basis : 66.66666666%;
+    max-width  : 66.66666666%;
+  }
+
+  $baseFlexWidth : 5;
+  @for $i from 5 through 24 {
+    .flex-col-#{$baseFlexWidth} {
+      flex-basis : percentage($baseFlexWidth)/100;
+      max-width  : percentage($baseFlexWidth)/100;
+    }
+    $baseFlexWidth : $baseFlexWidth + 5;
+  }
+
+  /*Desktop*/
+  $baseFlexWidth : 5;
+  @media (min-width : 952px) {
+
+    .flex-col-desktop-33 {
+      flex-basis : 33.33333333%;
+      max-width  : 33.33333333%;
+    }
+
+    .flex-col-desktop-66 {
+      flex-basis : 66.66666666%;
+      max-width  : 66.66666666%;
+    }
+
+    @for $i from 5 through 24 {
+      .flex-col-desktop-#{$baseFlexWidth} {
+        flex-basis : percentage($baseFlexWidth)/100;
+        max-width  : percentage($baseFlexWidth)/100;
+      }
+      $baseFlexWidth : $baseFlexWidth + 5;
+    }
+  }
+
+  /*Tablet*/
+  $baseFlexWidth : 5;
+  @media (max-width : 951px) {
+
+    .flex-col-tablet-33 {
+      flex-basis : 33.33333333%;
+      max-width  : 33.33333333%;
+    }
+
+    .flex-col-tablet-33 {
+      flex-basis : 66.66666666%;
+      max-width  : 66.66666666%;
+    }
+
+    @for $i from 5 through 24 {
+      .flex-col-tablet-#{$baseFlexWidth} {
+        flex-basis : percentage($baseFlexWidth)/100;
+        max-width  : percentage($baseFlexWidth)/100;
+      }
+      $baseFlexWidth : $baseFlexWidth + 5;
+    }
+
+  }
+
+  /*Mobile*/
+  $baseFlexWidth : 5;
+  @media (max-width : 767px) {
+
+    .flex-col-phone-33 {
+      flex-basis : 33.33333333%;
+      max-width  : 33.33333333%;
+    }
+
+    .flex-col-phone-66 {
+      flex-basis : 66.66666666%;
+      max-width  : 66.66666666%;
+    }
+
+    @for $i from 5 through 24 {
+      .flex-col-phone-#{$baseFlexWidth} {
+        flex-basis : percentage($baseFlexWidth)/100;
+        max-width  : percentage($baseFlexWidth)/100;
+      }
+      $baseFlexWidth : $baseFlexWidth + 5;
+    }
+  }
+}
+
+//@include flex-col;
+
+%space-x-section {
+  float   : none;
+  clear   : both;
+  display : block;
+  width   : 100%;
+  @include clearfix;
+}
+
+@mixin space-x {
+  @for $i from 1 through 10 {
+    .space-x-#{$i}0 {
+      @extend %space-x-section;
+      height : ($i*10)+px;
+    }
+  }
+}
+//@include space-x(); // 10 {+10} 100
+
+@mixin fontScope($class) {
+  // Custom sizes goes there
+  //.#{$class}-13 {
+  //	font-size   : 13px;
+  //	line-height : 16px;
+  //}
+
+  // Font Fabric
+  $font : 10;
+  @while $font <= 55 {
+    .#{$class}-#{$font} {
+      font-size   : $font + px;
+      line-height : ( $font + 3 ) + px;
+    }
+    $font : $font + 5;
+  }
+
+}
+//@include fontScope('am-font');

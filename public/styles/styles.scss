@@ -1,3 +1,11 @@
+@import "vars";
+@import "mix";
 body {
-  background-color: #e0ddd7;
+  background-color: $pastel; //#e0ddd7
+}
+
+.app-navbar {
+  justify-content: space-between;
+  background-color: #fff;
+  margin-bottom: 10px;
 }
