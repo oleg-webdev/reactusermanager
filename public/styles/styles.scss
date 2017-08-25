@@ -9,3 +9,17 @@ body {
   background-color: #fff;
   margin-bottom: 10px;
 }
+
+.desktop-navbar {
+  a {
+    cursor: pointer;
+
+    &.active {
+      color: $brandColor;
+
+      &:hover {
+        color: darken($brandColor, 10%);
+      }
+    }
+  }
+}

@@ -32,6 +32,11 @@ class Menu extends Component {
 		this.handleClose()
 	}
 
+	activeClass(className, routeName) {
+		const currPath = this.props.history.location.pathname
+		return currPath === routeName ? className : ''
+	}
+
 	render() {
 		return (
 			<header className="header-wrap">
@@ -68,14 +73,40 @@ class Menu extends Component {
 
 				<nav className="navbar navbar-expand-md app-navbar">
 					<a className="navbar-brand" href="#">Navbar</a>
+
+					<ul className="nav desktop-navbar">
+						<li className="nav-item">
+							<a className={'nav-link'+ this.activeClass(' active', '/')}
+							   onClick={() => this.navigateMe('/')}>Home</a>
+						</li>
+						<li className="nav-item">
+							<a className={'nav-link'+ this.activeClass(' active', '/users')}
+							   onClick={() => this.navigateMe('/users')}>Users</a>
+						</li>
+						<li className="nav-item">
+							<a className={'nav-link'+ this.activeClass(' active', '/search')}
+							   onClick={() => this.navigateMe('/search')}>Search</a>
+						</li>
+						<li className="nav-item">
+							<a className={'nav-link'+ this.activeClass(' active', '/sign_in')}
+							   onClick={() => this.navigateMe('/sign_in')}>Log In</a>
+						</li>
+						<li className="nav-item">
+							<a className={'nav-link'+ this.activeClass(' active', '/sign_up')}
+							   onClick={() => this.navigateMe('/sign_up')}>Register</a>
+						</li>
+						<li className="nav-item">
+							<a className={'nav-link'+ this.activeClass(' active', '/logout')}
+							   onClick={() => this.navigateMe('/logout')}>Logout</a>
+						</li>
+					</ul>
+
 					<IconButton
 						label="Open Drawer"
 						onClick={this.handleToggle}>
 						<FontIcon className="material-icons">menu</FontIcon>
 					</IconButton>
 				</nav>
-
-
 			</header>
 		)
 	}
