@@ -15,7 +15,9 @@ export function setUserAuthToken(token) {
 				type: "SET_AUTH_TOKEN",
 				payload: token
 			})
-		}, 2000)
+		}, 1000)
 	}
 
 }
+
+

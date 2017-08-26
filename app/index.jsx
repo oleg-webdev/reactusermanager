@@ -7,7 +7,9 @@ import App from './components/AppEntry'
 import store from './store'
 
 store.subscribe(() => {
-	console.log("Store updated: ", store.getState());
+
+	// console.log("Store updated: ", store.getState());
+
 })
 
 render(

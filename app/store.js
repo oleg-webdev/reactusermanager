@@ -4,17 +4,17 @@ import promise from "redux-promise-middleware"
 
 import userReducer from './reducers/userReducer'
 import authReducer from './reducers/authReducer'
+import logger from 'redux-logger'
 
 // Middleware
 const AppGuardian = (store) => (next) => (action) => {
 
-	console.log("Logged action", action);
+	// Middleware
 
 	next(action);
-
 }
 
 export default createStore(
 	combineReducers({ userReducer, authReducer }), {},
-	applyMiddleware(AppGuardian, thunk, promise())
+	applyMiddleware(AppGuardian, thunk, promise(), logger)
 )

@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 import { Link, withRouter } from 'react-router-dom'
+import { setUserAuthToken } from '../../actions/authActions'
 
 
 class Menu extends Component {
@@ -13,11 +16,6 @@ class Menu extends Component {
 	handleToggle = () => this.setState({ open: !this.state.open });
 
 	handleClose = () => this.setState({ open: false });
-
-	constructor(props) {
-		super(props)
-
-	}
 
 	iconsSet = {
 		home: <FontIcon className="material-icons">home</FontIcon>,
@@ -37,7 +35,19 @@ class Menu extends Component {
 		return currPath === routeName ? className : ''
 	}
 
+	isAuthenticated = () => {
+		const token = this.props.auth.authToken
+		return token !== null && token.length > 0
+	}
+
+	logoutAction = () => {
+		this.props.setAuthToken('')
+		this.handleClose()
+		this.navigateMe('/sign_in')
+	}
+
 	render() {
+
 		return (
 			<header className="header-wrap">
 				<div>
@@ -59,15 +69,26 @@ class Menu extends Component {
 						<MenuItem
 							onClick={(event) => this.navigateMe('/search')}
 							leftIcon={this.iconsSet.search}>Search</MenuItem>
-						<MenuItem
-							onClick={(event) => this.navigateMe('/sign_in')}
-							leftIcon={this.iconsSet.person}>Log In</MenuItem>
-						<MenuItem
-							onClick={(event) => this.navigateMe('/sign_up')}
-							leftIcon={this.iconsSet.person}>Sign Up</MenuItem>
-						<MenuItem
-							onClick={(event) => this.navigateMe('/logout')}
-							leftIcon={this.iconsSet.logout}>Logout</MenuItem>
+
+						{
+							this.isAuthenticated() ?
+								<div>
+									<MenuItem
+										onClick={this.logoutAction}
+										leftIcon={this.iconsSet.logout}>Logout</MenuItem>
+								</div>
+								: // else
+								<div>
+									<MenuItem
+										onClick={(event) => this.navigateMe('/sign_in')}
+										leftIcon={this.iconsSet.person}>Log In</MenuItem>
+									<MenuItem
+										onClick={(event) => this.navigateMe('/sign_up')}
+										leftIcon={this.iconsSet.person}>Sign Up</MenuItem>
+								</div>
+						}
+
+
 					</Drawer>
 				</div>
 
@@ -76,29 +97,45 @@ class Menu extends Component {
 
 					<ul className="nav desktop-navbar">
 						<li className="nav-item">
-							<a className={'nav-link'+ this.activeClass(' active', '/')}
+							<a className={'nav-link' + this.activeClass(' active', '/')}
 							   onClick={() => this.navigateMe('/')}>Home</a>
 						</li>
 						<li className="nav-item">
-							<a className={'nav-link'+ this.activeClass(' active', '/users')}
+							<a className={'nav-link' + this.activeClass(' active', '/users')}
 							   onClick={() => this.navigateMe('/users')}>Users</a>
 						</li>
 						<li className="nav-item">
-							<a className={'nav-link'+ this.activeClass(' active', '/search')}
+							<a className={'nav-link' + this.activeClass(' active', '/search')}
 							   onClick={() => this.navigateMe('/search')}>Search</a>
 						</li>
-						<li className="nav-item">
-							<a className={'nav-link'+ this.activeClass(' active', '/sign_in')}
-							   onClick={() => this.navigateMe('/sign_in')}>Log In</a>
-						</li>
-						<li className="nav-item">
-							<a className={'nav-link'+ this.activeClass(' active', '/sign_up')}
-							   onClick={() => this.navigateMe('/sign_up')}>Register</a>
-						</li>
-						<li className="nav-item">
-							<a className={'nav-link'+ this.activeClass(' active', '/logout')}
-							   onClick={() => this.navigateMe('/logout')}>Logout</a>
-						</li>
+
+						{
+							this.isAuthenticated() && (
+								<li className="nav-item">
+									<a className={'nav-link' + this.activeClass(' active', '/logout')}
+									   onClick={this.logoutAction}>Logout</a>
+								</li>
+							)
+						}
+
+						{
+							!this.isAuthenticated() && (
+								<li className="nav-item">
+									<a className={'nav-link' + this.activeClass(' active', '/sign_in')}
+									   onClick={() => this.navigateMe('/sign_in')}>Log In</a>
+								</li>
+							)
+						}
+						{
+							!this.isAuthenticated() && (
+								<li className="nav-item">
+									<a className={'nav-link' + this.activeClass(' active', '/sign_up')}
+									   onClick={() => this.navigateMe('/sign_up')}>Register</a>
+								</li>
+							)
+						}
+
+
 					</ul>
 
 					<IconButton
@@ -113,4 +150,17 @@ class Menu extends Component {
 
 }
 
-export default withRouter(Menu)
+const mapStateToProps = (state) => {
+	return {
+		auth: state.authReducer
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setAuthToken: (token) => {
+			dispatch(setUserAuthToken(token))
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Menu))

@@ -13,6 +13,7 @@ export default (state = {
 				authToken: action.payload
 			}
 			break;
+
 		case "SET_USER_INFO" :
 			state = {
 				...state,
