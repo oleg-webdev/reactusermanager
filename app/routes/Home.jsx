@@ -31,8 +31,8 @@ class Home extends Component {
 				</pre>
 				<pre>
 					<code>
-					{JSON.stringify(this.isAuthenticated())}
-				</code>
+						{JSON.stringify(this.isAuthenticated())}
+					</code>
 				</pre>
 			</div>
 		)
