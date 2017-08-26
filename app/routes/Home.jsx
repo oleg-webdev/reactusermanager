@@ -1,35 +1,55 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-const lStorage = window.localStorage;
+// actions
+import { setUserAuthToken } from '../actions/authActions'
 
-export default class Home extends Component {
+class Home extends Component {
 
-	state = {
-		am__userAuthToken: lStorage.getItem('am__userAuthToken')
+	updateToken = () => {
+		this.props.setAuthToken('new token 3')
 	}
 
-	constructor(props) {
-		super(props)
-
-	}
-
-	setSomeHistory = () => {
-		lStorage.setItem('am__userAuthToken', 'zzz')
-		this.setState({am__userAuthToken: lStorage.getItem('am__userAuthToken')})
+	isAuthenticated = () => {
+		const token = this.props.auth.authToken
+		return token !== null && token.length > 0
 	}
 
 	render() {
 		return (
 			<div className="home-container">
 				<h1>Home</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nemo odit quaerat. Debitis hic non reprehenderit repudiandae? Ab, atque consequatur cupiditate debitis dignissimos enim est in ipsum, maxime nemo, quo.</p>
 				<button
-					onClick={this.setSomeHistory}
-					type="button" className="btn btn-primary">Primary</button>
+					onClick={this.updateToken}
+					type="button" className="btn btn-primary">Set token
+				</button>
 				<hr/>
-				{this.state.am__userAuthToken}
+				<pre>
+					<code>
+						{JSON.stringify(this.props.auth.authToken)}
+					</code>
+				</pre>
+				<pre><code>
+					{JSON.stringify(this.isAuthenticated())}
+				</code></pre>
 			</div>
 		)
 	}
 
 }
+
+
+const mapStateToProps = (state) => {
+	return {
+		auth: state.authReducer
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setAuthToken: (token) => {
+			dispatch(setUserAuthToken(token))
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
