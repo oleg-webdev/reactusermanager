@@ -68,6 +68,7 @@
   "version": "0.0.1",
   "description": "React test starter",
   "main": "server.js",
-  "author": "Oleg Webartisan <cibulnicoleg@gmail.com>",
+  "repository" : "https://github.com/oleg-webdev/reactusermanager.git",
+  "author": "oleg-webdew <cibulnicoleg@gmail.com>",
   "license": "MIT"
 }
