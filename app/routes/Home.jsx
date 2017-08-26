@@ -29,9 +29,11 @@ class Home extends Component {
 						{JSON.stringify(this.props.auth.authToken)}
 					</code>
 				</pre>
-				<pre><code>
+				<pre>
+					<code>
 					{JSON.stringify(this.isAuthenticated())}
-				</code></pre>
+				</code>
+				</pre>
 			</div>
 		)
 	}
