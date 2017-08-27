@@ -4,10 +4,13 @@ body {
   background-color: $pastel; //#e0ddd7
 }
 
+.img-responsive {
+  max-width: 100%;
+}
+
 .app-navbar {
   justify-content: space-between;
   background-color: #fff;
-  margin-bottom: 10px;
 }
 
 .desktop-navbar {
@@ -21,5 +24,11 @@ body {
         color: darken($brandColor, 10%);
       }
     }
+  }
+}
+
+.app-route-transition {
+  > * {
+    position: absolute;
   }
 }

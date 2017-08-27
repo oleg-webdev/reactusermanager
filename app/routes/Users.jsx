@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import '../../public/styles/styles.scss'
-
 export default class Users extends Component {
 
 	render() {

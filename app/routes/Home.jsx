@@ -15,26 +15,19 @@ class Home extends Component {
 		return token !== null && token.length > 0
 	}
 
+	// this.props.auth.authToken
+	// this.isAuthenticated()
+
 	render() {
+
 		return (
-			<div className="home-container">
-				<h1>Home</h1>
-				<button
-					onClick={this.updateToken}
-					type="button" className="btn btn-primary">Set token
-				</button>
-				<hr/>
-				<pre>
-					<code>
-						{JSON.stringify(this.props.auth.authToken)}
-					</code>
-				</pre>
-				<pre>
-					<code>
-						{JSON.stringify(this.isAuthenticated())}
-					</code>
-				</pre>
+			<div>
+				<div>
+					<img className={'img-responsive'} src="./public/img/futuristic-spaceship.jpg"/>
+				</div>
 			</div>
+
+
 		)
 	}
 
