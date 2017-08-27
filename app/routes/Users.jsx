@@ -31,6 +31,7 @@ export default class Users extends Component {
 							<ListItem primaryText="Follow up" rightIcon={<ActionInfo/>}/>
 						</List>
 					</div>
+
 					<div className="col-md-8"></div>
 				</div>
 
