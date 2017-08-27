@@ -1,3 +1,4 @@
 export default {
-	siteUrl: 'http://localhost:8080/'
+	siteUrl: 'http://localhost:8080/',
+
 }
