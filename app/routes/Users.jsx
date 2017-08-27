@@ -32,7 +32,9 @@ export default class Users extends Component {
 						</List>
 					</div>
 
-					<div className="col-md-8"></div>
+					<div className="col-md-8">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolor dolorem ea error quod! Ad, hic molestiae. Deserunt est, eveniet impedit, maxime odit quo quod quos similique sunt vitae voluptates.</p>
+					</div>
 				</div>
 
 			</div>

@@ -9,6 +9,7 @@ import Menu from '../components/header/Menu'
 import Home from '../routes/Home'
 import Search from '../routes/Search'
 import Users from '../routes/Users'
+import Login from '../routes/Login'
 
 // <Route exact path="/" render={props => <Home {...props}/>}/>
 // <Route path="/users" component={Users}/>
@@ -50,6 +51,8 @@ class App extends Component {
 										<Route exact path="/" component={Home}/>
 										<Route path="/users" component={Users}/>
 										<Route path="/search" component={Search}/>
+										<Route path="/sign_in" component={Login}/>
+										<Route path="/sign_up" component={Login}/>
 									</Switch>
 								</RouteTransition>
 							</div>

@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "webpack",
+    "production": "webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"app/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
