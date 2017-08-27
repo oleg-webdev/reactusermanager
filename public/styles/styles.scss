@@ -1,5 +1,7 @@
 @import "vars";
 @import "mix";
+@import "markup";
+
 body {
   background-color: $pastel; //#e0ddd7
 }
@@ -30,5 +32,7 @@ body {
 .app-route-transition {
   > * {
     position: absolute;
+    width: 100%;
+    background-color: #fff;
   }
 }

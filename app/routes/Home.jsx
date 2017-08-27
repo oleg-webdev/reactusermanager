@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import AppConst from '../app-const'
 
 // actions
 import { setUserAuthToken } from '../actions/authActions'
@@ -19,11 +20,12 @@ class Home extends Component {
 	// this.isAuthenticated()
 
 	render() {
+		const imgSrc = `${AppConst.siteUrl}public/img/futuristic-spaceship.jpg`
 
 		return (
 			<div>
 				<div>
-					<img className={'img-responsive'} src="./public/img/futuristic-spaceship.jpg"/>
+					<img className={'img-responsive'} src={imgSrc}/>
 				</div>
 			</div>
 
