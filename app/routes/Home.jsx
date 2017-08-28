@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AppConst from '../app-const'
 
+import '../../public/styles/partials/home.scss'
+
 export default class Home extends Component {
 
 	render() {

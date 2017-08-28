@@ -2,8 +2,21 @@
 @import "mix";
 @import "markup";
 
+html, body {
+  height: 100%;
+}
+
 body {
-  background-color: $pastel; //#e0ddd7
+  //background-color: $pastel; //#e0ddd7
+  //background: url('/public/img/presentation-bg-min.jpg') no-repeat bottom right;
+  //background-size: cover;
+
+  .app-route-transition {
+    > div {
+      //background: url('/public/img/presentation-bg-min.jpg') no-repeat bottom right;
+      //background-size: cover;
+    }
+  }
 }
 
 .img-responsive {
@@ -36,3 +49,10 @@ body {
     background-color: #fff;
   }
 }
+
+.header-wrap {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+}
+

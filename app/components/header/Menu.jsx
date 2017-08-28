@@ -8,6 +8,8 @@ import FontIcon from 'material-ui/FontIcon';
 import { Link, withRouter } from 'react-router-dom'
 import { setUserAuthToken } from '../../actions/authActions'
 
+import __ from '../../app-const'
+
 
 class Menu extends Component {
 
@@ -43,7 +45,7 @@ class Menu extends Component {
 	logoutAction = () => {
 		this.props.setAuthToken('')
 		this.handleClose()
-		this.navigateMe('/sign_in')
+		this.navigateMe(`${__.pref}/sign_in`)
 	}
 
 	render() {
@@ -57,17 +59,17 @@ class Menu extends Component {
 						open={this.state.open}
 						onRequestChange={(open) => this.setState({ open })}
 					>
-						{/*<Link to={'/'} onClick={this.handleClose}>Home</Link>*/}
-						{/*<Link to={'/search'} onClick={this.handleClose}>Search</Link>*/}
+						{/*<Link to={`${__.pref}/`} onClick={this.handleClose}>Home</Link>*/}
+						{/*<Link to={`${__.pref}/search`} onClick={this.handleClose}>Search</Link>*/}
 
 						<MenuItem
-							onClick={(event) => this.navigateMe('/')}
+							onClick={(event) => this.navigateMe(`${__.pref}/`)}
 							leftIcon={this.iconsSet.home}>Home</MenuItem>
 						<MenuItem
-							onClick={(event) => this.navigateMe('/users')}
+							onClick={(event) => this.navigateMe(`${__.pref}/users`)}
 							leftIcon={this.iconsSet.people}>Users</MenuItem>
 						<MenuItem
-							onClick={(event) => this.navigateMe('/search')}
+							onClick={(event) => this.navigateMe(`${__.pref}/search`)}
 							leftIcon={this.iconsSet.search}>Search</MenuItem>
 
 						{
@@ -80,10 +82,10 @@ class Menu extends Component {
 								: // else
 								<div>
 									<MenuItem
-										onClick={(event) => this.navigateMe('/sign_in')}
+										onClick={(event) => this.navigateMe(`${__.pref}/sign_in`)}
 										leftIcon={this.iconsSet.person}>Log In</MenuItem>
 									<MenuItem
-										onClick={(event) => this.navigateMe('/sign_up')}
+										onClick={(event) => this.navigateMe(`${__.pref}/sign_up`)}
 										leftIcon={this.iconsSet.person}>Sign Up</MenuItem>
 								</div>
 						}
@@ -97,22 +99,22 @@ class Menu extends Component {
 
 					<ul className="nav desktop-navbar">
 						<li className="nav-item">
-							<a className={'nav-link' + this.activeClass(' active', '/')}
-							   onClick={() => this.navigateMe('/')}>Home</a>
+							<a className={'nav-link' + this.activeClass(' active', `${__.pref}/`)}
+							   onClick={() => this.navigateMe(`${__.pref}/`)}>Home</a>
 						</li>
 						<li className="nav-item">
-							<a className={'nav-link' + this.activeClass(' active', '/users')}
-							   onClick={() => this.navigateMe('/users')}>Users</a>
+							<a className={'nav-link' + this.activeClass(' active', `${__.pref}/users`)}
+							   onClick={() => this.navigateMe(`${__.pref}/users`)}>Users</a>
 						</li>
 						<li className="nav-item">
-							<a className={'nav-link' + this.activeClass(' active', '/search')}
-							   onClick={() => this.navigateMe('/search')}>Search</a>
+							<a className={'nav-link' + this.activeClass(' active', `${__.pref}/search`)}
+							   onClick={() => this.navigateMe(`${__.pref}/search`)}>Search</a>
 						</li>
 
 						{
 							this.isAuthenticated() && (
 								<li className="nav-item">
-									<a className={'nav-link' + this.activeClass(' active', '/logout')}
+									<a className={'nav-link' + this.activeClass(' active', `${__.pref}/logout`)}
 									   onClick={this.logoutAction}>Logout</a>
 								</li>
 							)
@@ -121,16 +123,16 @@ class Menu extends Component {
 						{
 							!this.isAuthenticated() && (
 								<li className="nav-item">
-									<a className={'nav-link' + this.activeClass(' active', '/sign_in')}
-									   onClick={() => this.navigateMe('/sign_in')}>Log In</a>
+									<a className={'nav-link' + this.activeClass(' active', `${__.pref}/sign_in`)}
+									   onClick={() => this.navigateMe(`${__.pref}/sign_in`)}>Log In</a>
 								</li>
 							)
 						}
 						{
 							!this.isAuthenticated() && (
 								<li className="nav-item">
-									<a className={'nav-link' + this.activeClass(' active', '/sign_up')}
-									   onClick={() => this.navigateMe('/sign_up')}>Register</a>
+									<a className={'nav-link' + this.activeClass(' active', `${__.pref}/sign_up`)}
+									   onClick={() => this.navigateMe(`${__.pref}/sign_up`)}>Register</a>
 								</li>
 							)
 						}

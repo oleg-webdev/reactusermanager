@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { RouteTransition } from 'react-router-transition';
 
+import __ from '../app-const'
+
 import '../../public/styles/styles.scss'
 
 import Menu from '../components/header/Menu'
@@ -11,27 +13,12 @@ import Search from '../routes/Search'
 import Users from '../routes/Users'
 import Login from '../routes/Login'
 
-// <Route exact path="/" render={props => <Home {...props}/>}/>
-// <Route path="/users" component={Users}/>
-
 class App extends Component {
 
 	render() {
 
 		return (
 			<div>
-				{/*<BrowserRouter>*/}
-					{/*<div>*/}
-						{/*<Menu/>*/}
-						{/*<div className="app container-fluid">*/}
-							{/*<Switch>*/}
-								{/*<Route exact path="/" component={Home}/>*/}
-								{/*<Route path="/users" component={Users}/>*/}
-								{/*<Route path="/search" component={Search}/>*/}
-							{/*</Switch>*/}
-						{/*</div>*/}
-					{/*</div>*/}
-				{/*</BrowserRouter>*/}
 				<BrowserRouter>
 					<Route render={({location, history, match}) => {
 						return (
@@ -49,11 +36,11 @@ class App extends Component {
 									})}
 								>
 									<Switch key={location.key} location={location}>
-										<Route exact path="/" component={Home}/>
-										<Route path="/users" component={Users}/>
-										<Route path="/search" component={Search}/>
-										<Route path="/sign_in" component={Login}/>
-										<Route path="/sign_up" component={Login}/>
+										<Route exact path={`${__.pref}/`} component={Home}/>
+										<Route path={`${__.pref}/users`} component={Users}/>
+										<Route path={`${__.pref}/search`} component={Search}/>
+										<Route path={`${__.pref}/sign_in`} component={Login}/>
+										<Route path={`${__.pref}/sign_up`} component={Login}/>
 									</Switch>
 								</RouteTransition>
 							</div>
