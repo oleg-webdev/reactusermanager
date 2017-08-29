@@ -2,7 +2,35 @@
 @import "../mix";
 
 .home-container {
+
+  overflow-x: hidden;
+
   figure {
     margin-bottom: 0;
+    overflow: hidden;
+    max-height: 500px;
+
+    figcaption {
+      background-color: transparentize(#fff, .3);
+    }
+
+    .am-wrap {
+      padding: 100px 0;
+    }
+  }
+
+}
+
+.absolute-caption {
+  position: relative;
+
+  figcaption {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
   }
 }

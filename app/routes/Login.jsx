@@ -18,14 +18,16 @@ class Login extends Component {
 		return token !== null && token.length > 0
 	}
 
-	// this.props.auth.authToken
-	// this.isAuthenticated()
-
 	render() {
 		return (
 			<div className="search-container am-wrap component-container">
 
 				<div className="text-center">
+					<hr/>
+					<p><em>This is just login emulation without actual backend login. Only for menu state management purpose. Aside menu items affected also</em></p>
+					<p><em>You can check dev tools console for callback details</em></p>
+					<hr/>
+
 					{
 						!this.isAuthenticated() &&
 							<div>
@@ -38,7 +40,6 @@ class Login extends Component {
 
 					{this.isAuthenticated() && (
 						<div>
-							<hr/>
 							<p>You're authenticated</p>
 							<p>Check your local storage for "usrAuthToken"</p>
 
