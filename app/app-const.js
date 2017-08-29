@@ -1,6 +1,6 @@
 export default {
-	// http://billwebstudio.com/projects/reactusermanager/
+	// siteUrl: 'http://billwebstudio.com/projects/reactusermanager/',
+	// pref: '/projects/reactusermanager',
 	siteUrl: 'http://localhost:8080/',
-	// /projects/reactusermanager
 	pref: ''
 }
