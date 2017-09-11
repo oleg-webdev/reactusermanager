@@ -7,10 +7,8 @@ export default class Home extends Component {
 		const imgSrc = `${AppConst.siteUrl}public/img/futuristic-spaceship.jpg`
 
 		return (
-			<div className="home-container">
-				<figure>
-					<img className={'img-responsive'} src={imgSrc}/>
-				</figure>
+			<div className="home-container am-wrap component-container">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cupiditate deleniti dolorum eaque excepturi id impedit ipsum libero porro, provident quia quibusdam repellendus repudiandae tempore temporibus totam vel veritatis vitae?</p>
 			</div>
 		)
 	}
