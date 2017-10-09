@@ -1,7 +1,8 @@
-const localStorage = window.localStorage
+// const localStorage = window.localStorage
 
 export default (state = {
-	authToken: localStorage.getItem('usrAuthToken'),
+	// authToken: localStorage.getItem('usrAuthToken'),
+	authToken: '',
 	user: {}
 }, action) => {
 

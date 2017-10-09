@@ -1,4 +1,4 @@
-const localStorage = window.localStorage // usrAuthToken
+// const localStorage = window.localStorage // usrAuthToken
 
 export function setUserAuthToken(token) {
 	// return {
@@ -9,7 +9,8 @@ export function setUserAuthToken(token) {
 	return dispatch => {
 		setTimeout(() => {
 
-			localStorage.setItem('usrAuthToken', token)
+			// localStorage.setItem('usrAuthToken', token)
+			localStorage = ''
 
 			dispatch({
 				type: "SET_AUTH_TOKEN",

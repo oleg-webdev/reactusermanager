@@ -5,7 +5,7 @@ export default class Search extends Component {
 	constructor(props) {
 		super(props)
 
-		window.__history = props.history
+		// window.__history = props.history
 	}
 
 	render() {
