@@ -1,8 +1,10 @@
-// const localStorage = window.localStorage
+let localStorage = typeof(window) !== 'undefined' ?
+	window.localStorage : ''
 
 export default (state = {
-	// authToken: localStorage.getItem('usrAuthToken'),
-	authToken: '',
+	authToken: typeof(window) !== 'undefined' ?
+		localStorage.getItem('usrAuthToken') : '',
+	// authToken: '',
 	user: {}
 }, action) => {
 

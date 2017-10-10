@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import store from '../store';
 import { RouteTransition } from 'react-router-transition';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import Menu from '../components/header/Menu'
 import Home from '../routes/Home'
@@ -16,7 +17,7 @@ const App = () => (
 		<MuiThemeProvider>
 			<Route render={({location, history, match}) => (
 				<div>
-					<Menu></Menu>
+					<Menu/>
 					<RouteTransition
 						className="app-route-transition"
 						pathname={location.pathname}
